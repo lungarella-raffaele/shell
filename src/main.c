@@ -16,7 +16,17 @@ int main(int argc, char *argv[]) {
       break;
     }
 
-    printf("%s: command not found\n", input);
+    char *ptr = input;
+    char *cmd = strsep(&ptr, " ");
+
+    if (strcmp(cmd, "echo") == 0) {
+      if (ptr == NULL) {
+        printf("\n");
+      }
+      printf("%s\n", ptr);
+    } else {
+      printf("%s: command not found\n", cmd);
+    }
   }
   return 0;
 }
