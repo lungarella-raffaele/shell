@@ -4,10 +4,11 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define CMD_LIST_SIZE 3
 #define MAX_LENGTH 1024
+#define MAX_LENGTH_DIR 1024
 
-char *cmd_list[] = {"echo", "exit", "type"};
+#define CMD_LIST_SIZE 4
+char *cmd_list[] = {"echo", "exit", "type", "pwd"};
 
 int is_equal(char *str1, char *str2) { return strcmp(str1, str2) == 0; }
 
@@ -84,6 +85,16 @@ int execute_external(char *bin, char **argv) {
     }
 
     return 0;
+}
+
+void execute_pwd(char **arg) {
+    char dir[MAX_LENGTH_DIR];
+
+    if (getcwd(dir, MAX_LENGTH_DIR)) {
+        printf("%s\n", dir);
+    } else {
+        perror("getcwd() error\n");
+    }
 }
 
 void execute_echo(char **arg) {
@@ -202,6 +213,8 @@ int main(int argc, char *argv[]) {
             execute_echo(args);
         } else if (is_equal(cmd, "type")) {
             execute_type(tokens);
+        } else if (is_equal(cmd, "pwd")) {
+            execute_pwd(args);
         } else {
             char *exec = is_in_path(cmd);
             if (exec != NULL) {
