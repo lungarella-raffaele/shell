@@ -1,71 +1,14 @@
+#include "builtins.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define MAX_LENGTH 1024
-#define MAX_LENGTH_DIR 1024
-
-#define CMD_LIST_SIZE 4
-char *cmd_list[] = {"echo", "exit", "type", "pwd"};
-
-int is_equal(char *str1, char *str2) { return strcmp(str1, str2) == 0; }
-
-int is_builtin(char *cmd) {
-    for (int i = 0; i < CMD_LIST_SIZE; i++) {
-        if (is_equal(cmd, cmd_list[i])) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-
-char *is_in_path(char *cmd) {
-    char *path = strdup(getenv("PATH"));
-    char *path_copy = path;
-    char *dir;
-
-    while ((dir = strsep(&path, ":")) != NULL) {
-        char path_to_check[MAX_LENGTH];
-        snprintf(path_to_check, MAX_LENGTH, "%s/%s", dir, cmd);
-        if (access(path_to_check, X_OK) == 0) {
-            free(path_copy);
-            char *result = strdup(path_to_check);
-            return result;
-        };
-    }
-
-    free(path_copy);
-    return NULL;
-}
-
 void user_input(char *input) {
     fgets(input, 100, stdin);
     input[strlen(input) - 1] = '\0';
-}
-
-void execute_type(char **args) {
-    if (args == NULL || args[1] == NULL) {
-        printf("type needs an argument\n");
-        return;
-    }
-    char *first_arg = args[1];
-
-    if (is_builtin(first_arg) >= 0) {
-        printf("%s is a shell builtin\n", first_arg);
-        return;
-    }
-
-    char *dir = is_in_path(first_arg);
-    if (dir == NULL) {
-        printf("%s: not found\n", first_arg);
-        return;
-    };
-
-    printf("%s is %s\n", first_arg, dir);
-    free(dir);
 }
 
 int execute_external(char *bin, char **argv) {
@@ -87,33 +30,7 @@ int execute_external(char *bin, char **argv) {
     return 0;
 }
 
-void execute_pwd(char **arg) {
-    char dir[MAX_LENGTH_DIR];
-
-    if (getcwd(dir, MAX_LENGTH_DIR)) {
-        printf("%s\n", dir);
-    } else {
-        perror("getcwd() error\n");
-    }
-}
-
-void execute_echo(char **arg) {
-    if (arg == NULL) {
-        printf("\n");
-    } else {
-        for (int i = 0; arg[i] != NULL; i++) {
-            if (i == 0) {
-                printf("%s", arg[i]);
-            } else {
-                printf(" %s", arg[i]);
-            }
-        }
-        printf("\n");
-    }
-}
-
 void not_found(char *cmd) { printf("%s: command not found\n", cmd); }
-
 void free_tokens(char **tokens) {
     if (tokens == NULL) {
         return;
@@ -125,7 +42,8 @@ void free_tokens(char **tokens) {
     free(tokens);
 }
 
-char **get_tokens(char *cmd) {
+// git commit -m 'daje roma'
+char **parse_tokens(char *cmd) {
     if (cmd == NULL) {
         return NULL;
     }
@@ -182,7 +100,7 @@ char **get_tokens(char *cmd) {
     return tokens;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     char input[100];
 
     while (1) {
@@ -191,7 +109,7 @@ int main(int argc, char *argv[]) {
 
         user_input(input);
 
-        char **tokens = get_tokens(input);
+        char **tokens = parse_tokens(input);
         if (tokens == NULL) {
             fprintf(stderr, "Error: Failed to tokenize input\n");
             break;
@@ -203,27 +121,20 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        char *cmd = tokens[0];
-        char **args = &tokens[1];
-
-        if (is_equal(cmd, "exit")) {
+        if (is_equal(tokens[0], "exit")) {
             free_tokens(tokens);
             break;
-        } else if (is_equal(cmd, "echo")) {
-            execute_echo(args);
-        } else if (is_equal(cmd, "type")) {
-            execute_type(tokens);
-        } else if (is_equal(cmd, "pwd")) {
-            execute_pwd(args);
+        } else if (is_builtin(tokens[0]) == 0) {
+            run_builtin(tokens[0], &tokens[1]);
         } else {
-            char *exec = is_in_path(cmd);
+            char *exec = is_in_path(tokens[0]);
             if (exec != NULL) {
                 int status = execute_external(exec, tokens);
                 if (status == -1) {
                     printf("Error while executing: %s\n", exec);
                 }
             } else {
-                not_found(cmd);
+                not_found(tokens[0]);
             }
         }
     }

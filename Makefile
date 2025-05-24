@@ -129,6 +129,30 @@ shell/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/build
 .PHONY : shell/fast
 
+src/builtins.o: src/builtins.c.o
+.PHONY : src/builtins.o
+
+# target to build an object file
+src/builtins.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/builtins.c.o
+.PHONY : src/builtins.c.o
+
+src/builtins.i: src/builtins.c.i
+.PHONY : src/builtins.i
+
+# target to preprocess a source file
+src/builtins.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/builtins.c.i
+.PHONY : src/builtins.c.i
+
+src/builtins.s: src/builtins.c.s
+.PHONY : src/builtins.s
+
+# target to generate assembly for a file
+src/builtins.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/builtins.c.s
+.PHONY : src/builtins.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -153,29 +177,29 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/test.o: src/test.c.o
-.PHONY : src/test.o
+src/utils.o: src/utils.c.o
+.PHONY : src/utils.o
 
 # target to build an object file
-src/test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/test.c.o
-.PHONY : src/test.c.o
+src/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.o
+.PHONY : src/utils.c.o
 
-src/test.i: src/test.c.i
-.PHONY : src/test.i
+src/utils.i: src/utils.c.i
+.PHONY : src/utils.i
 
 # target to preprocess a source file
-src/test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/test.c.i
-.PHONY : src/test.c.i
+src/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.i
+.PHONY : src/utils.c.i
 
-src/test.s: src/test.c.s
-.PHONY : src/test.s
+src/utils.s: src/utils.c.s
+.PHONY : src/utils.s
 
 # target to generate assembly for a file
-src/test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/test.c.s
-.PHONY : src/test.c.s
+src/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/utils.c.s
+.PHONY : src/utils.c.s
 
 # Help Target
 help:
@@ -186,12 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... shell"
+	@echo "... src/builtins.o"
+	@echo "... src/builtins.i"
+	@echo "... src/builtins.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

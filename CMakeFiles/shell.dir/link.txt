@@ -1,1 +1,1 @@
-/usr/bin/cc  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/shell.dir/src/main.c.o -o shell  -lreadline
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/shell.dir/src/builtins.c.o CMakeFiles/shell.dir/src/main.c.o CMakeFiles/shell.dir/src/utils.c.o -o shell  -lreadline

@@ -85,12 +85,12 @@ clean: CMakeFiles/shell.dir/clean
 CMakeFiles/shell.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=1,2 "Built target shell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=1,2,3,4 "Built target shell"
 .PHONY : CMakeFiles/shell.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/shell.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shell.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles 0
 .PHONY : CMakeFiles/shell.dir/rule
@@ -102,7 +102,7 @@ shell: CMakeFiles/shell.dir/rule
 # codegen rule for target.
 CMakeFiles/shell.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=1,2 "Finished codegen for target shell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target shell"
 .PHONY : CMakeFiles/shell.dir/codegen
 
 # clean rule for target.

@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/shell.dir/src/builtins.c.o"
+  "CMakeFiles/shell.dir/src/builtins.c.o.d"
   "CMakeFiles/shell.dir/src/main.c.o"
   "CMakeFiles/shell.dir/src/main.c.o.d"
+  "CMakeFiles/shell.dir/src/utils.c.o"
+  "CMakeFiles/shell.dir/src/utils.c.o.d"
   "shell"
   "shell.pdb"
 )

@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/builtins.c" "CMakeFiles/shell.dir/src/builtins.c.o" "gcc" "CMakeFiles/shell.dir/src/builtins.c.o.d"
   "/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/main.c" "CMakeFiles/shell.dir/src/main.c.o" "gcc" "CMakeFiles/shell.dir/src/main.c.o.d"
+  "/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/utils.c" "CMakeFiles/shell.dir/src/utils.c.o" "gcc" "CMakeFiles/shell.dir/src/utils.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

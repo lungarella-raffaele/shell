@@ -72,10 +72,24 @@ include CMakeFiles/shell.dir/flags.make
 CMakeFiles/shell.dir/codegen:
 .PHONY : CMakeFiles/shell.dir/codegen
 
+CMakeFiles/shell.dir/src/builtins.c.o: CMakeFiles/shell.dir/flags.make
+CMakeFiles/shell.dir/src/builtins.c.o: src/builtins.c
+CMakeFiles/shell.dir/src/builtins.c.o: CMakeFiles/shell.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/shell.dir/src/builtins.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/shell.dir/src/builtins.c.o -MF CMakeFiles/shell.dir/src/builtins.c.o.d -o CMakeFiles/shell.dir/src/builtins.c.o -c /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/builtins.c
+
+CMakeFiles/shell.dir/src/builtins.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/shell.dir/src/builtins.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/builtins.c > CMakeFiles/shell.dir/src/builtins.c.i
+
+CMakeFiles/shell.dir/src/builtins.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/shell.dir/src/builtins.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/builtins.c -o CMakeFiles/shell.dir/src/builtins.c.s
+
 CMakeFiles/shell.dir/src/main.c.o: CMakeFiles/shell.dir/flags.make
 CMakeFiles/shell.dir/src/main.c.o: src/main.c
 CMakeFiles/shell.dir/src/main.c.o: CMakeFiles/shell.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/shell.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/shell.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/shell.dir/src/main.c.o -MF CMakeFiles/shell.dir/src/main.c.o.d -o CMakeFiles/shell.dir/src/main.c.o -c /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/main.c
 
 CMakeFiles/shell.dir/src/main.c.i: cmake_force
@@ -86,17 +100,35 @@ CMakeFiles/shell.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/shell.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/main.c -o CMakeFiles/shell.dir/src/main.c.s
 
+CMakeFiles/shell.dir/src/utils.c.o: CMakeFiles/shell.dir/flags.make
+CMakeFiles/shell.dir/src/utils.c.o: src/utils.c
+CMakeFiles/shell.dir/src/utils.c.o: CMakeFiles/shell.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/shell.dir/src/utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/shell.dir/src/utils.c.o -MF CMakeFiles/shell.dir/src/utils.c.o.d -o CMakeFiles/shell.dir/src/utils.c.o -c /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/utils.c
+
+CMakeFiles/shell.dir/src/utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/shell.dir/src/utils.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/utils.c > CMakeFiles/shell.dir/src/utils.c.i
+
+CMakeFiles/shell.dir/src/utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/shell.dir/src/utils.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/src/utils.c -o CMakeFiles/shell.dir/src/utils.c.s
+
 # Object files for target shell
 shell_OBJECTS = \
-"CMakeFiles/shell.dir/src/main.c.o"
+"CMakeFiles/shell.dir/src/builtins.c.o" \
+"CMakeFiles/shell.dir/src/main.c.o" \
+"CMakeFiles/shell.dir/src/utils.c.o"
 
 # External object files for target shell
 shell_EXTERNAL_OBJECTS =
 
+shell: CMakeFiles/shell.dir/src/builtins.c.o
 shell: CMakeFiles/shell.dir/src/main.c.o
+shell: CMakeFiles/shell.dir/src/utils.c.o
 shell: CMakeFiles/shell.dir/build.make
 shell: CMakeFiles/shell.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable shell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable shell"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shell.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
