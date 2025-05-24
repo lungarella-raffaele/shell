@@ -1,3 +1,0 @@
-/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles/shell.dir
-/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles/edit_cache.dir
-/Users/raffaelelungarella/Documents/Personal/Learning/codecrafters-shell-c/CMakeFiles/rebuild_cache.dir

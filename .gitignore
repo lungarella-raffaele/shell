@@ -54,3 +54,10 @@ dkms.conf
 build
 vcpkg_installed
 /.zed
+
+# Build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
