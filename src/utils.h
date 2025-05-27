@@ -1,7 +1,11 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-int is_equal(char *str1, char *str2);
+#include <stdbool.h>
+
 char *is_in_path(char *cmd);
+void not_found(char *cmd);
+char **parse_tokens(char *cmd);
+void free_tokens(char **tokens);
 
 #endif
