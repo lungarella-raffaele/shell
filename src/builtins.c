@@ -71,14 +71,18 @@ void execute_pwd(char **argv) {
 }
 
 void execute_cd(char **argv) {
-  if (argv[0] == NULL) {
-    // TODO If empty move current directory to ~
-    return;
+  char *path_to_move;
+
+  if (argv[0] == NULL || *argv[0] == '~') {
+    path_to_move = getenv("HOME");
+  } else {
+    path_to_move = argv[0];
   }
-  int error = chdir(argv[0]);
+
+  int error = chdir(path_to_move);
 
   if (error == -1) {
-    fprintf(stderr, "cd: %s: %s\n", argv[0], strerror(errno));
+    fprintf(stderr, "cd: %s: %s\n", path_to_move, strerror(errno));
   }
 }
 
