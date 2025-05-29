@@ -2,6 +2,18 @@
 
 My C solution to the ["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
 
+### Usage
+Create MakeFile & Build
+
+```bash
+cmake . ; make
+```
+
+Run
+```bash
+./shell
+```
+
 - [x] REPL;
 - [x] `exit` builtin;
 - [x] `echo` builtin;
