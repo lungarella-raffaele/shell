@@ -1,4 +1,5 @@
 #include "builtins.h"
+#include "parser.h"
 #include "utils.h"
 #include <stdbool.h>
 #include <stdio.h>
@@ -7,7 +8,11 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#define MAX_TOKENS 100
+
 void user_input(char *input) {
+  setbuf(stdout, NULL);
+  printf("$ ");
   fgets(input, 100, stdin);
   input[strlen(input) - 1] = '\0';
 }
@@ -33,27 +38,17 @@ int run_external(char *bin, char **argv) {
 
 int main() {
   char input[100];
+  char *tokens[MAX_TOKENS];
 
+  int token_count;
   while (1) {
-    setbuf(stdout, NULL);
-    printf("$ ");
+    token_count = 0;
 
     user_input(input);
 
-    char **tokens = parse_tokens(input);
-    if (tokens == NULL) {
-      fprintf(stderr, "Error: Failed to tokenize input\n");
-      break;
-    }
-
-    if (tokens[0] == NULL) {
-      printf("\n");
-      free_tokens(tokens);
-      continue;
-    }
+    parse_tokens(input, tokens, &token_count);
 
     if (strcmp(tokens[0], "exit") == 0) {
-      free_tokens(tokens);
       break;
     } else if (is_builtin(tokens[0]) == 0) {
       run_builtin(tokens[0], &tokens[1]);
@@ -69,5 +64,6 @@ int main() {
       }
     }
   }
+
   return 0;
 }

@@ -5,7 +5,5 @@
 
 char *is_in_path(char *cmd);
 void not_found(char *cmd);
-char **parse_tokens(char *cmd);
-void free_tokens(char **tokens);
 
 #endif

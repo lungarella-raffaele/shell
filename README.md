@@ -3,6 +3,7 @@
 My C solution to the ["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
 
 ### Usage
+
 Create MakeFile & Build
 
 ```bash
@@ -10,6 +11,7 @@ cmake . ; make
 ```
 
 Run
+
 ```bash
 ./shell
 ```
@@ -21,7 +23,3 @@ Run
 - [x] `pwd` builtin;
 - [x] `cd` builtin;
 - [x] `run` program;
-- [ ] quoting;
-- [ ] auto-completion;
-- [ ] redirection;
-- [ ] pipelines;
